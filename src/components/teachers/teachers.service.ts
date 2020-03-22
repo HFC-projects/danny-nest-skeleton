@@ -15,11 +15,12 @@ export class TeachersService {
 		return createdTeacher.save();
 	}
 
-	async findAll(): Promise<Teacher[]> {
-		return await this.teacherModel.find().exec();
+	async getAll(): Promise<Teacher[]> {
+		let x= await this.teacherModel.find().exec();
+		return x;
 	}
 
-	async findOne(id): Promise<Teacher> {
+	async getById(id): Promise<Teacher> {
 		return await this.teacherModel.findById(id).exec();
 	}
 

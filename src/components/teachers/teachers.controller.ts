@@ -8,12 +8,12 @@ export class TeachersController {
 
 	@Get()
 	getAllTeachers(): Promise<Teacher[]> {
-		return this.teacherService.findAll();
+		return this.teacherService.getAll();
 	}
 
 	@Get(':id')
 	async getTeacherById(@Param('id') id): Promise<Teacher> {
-		return this.teacherService.findOne(id);
+		return this.teacherService.getById(id);
 	}
 
 }
