@@ -5,21 +5,21 @@ import { AppModule } from '../app.module';
 import Consts from '../../../common/consts';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+	let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+	beforeEach(async () => {
+		const moduleFixture: TestingModule = await Test.createTestingModule({
+			imports: [AppModule],
+		}).compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
+		app = moduleFixture.createNestApplication();
+		await app.init();
+	});
 
-  it('/sanity (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/sanity')
-      .expect(200)
-      .expect(Consts.sanityMessage);
-  });
+	it('/sanity (GET)', () => {
+		return request(app.getHttpServer())
+			.get('/sanity')
+			.expect(200)
+			.expect(Consts.sanityMessage);
+	});
 });

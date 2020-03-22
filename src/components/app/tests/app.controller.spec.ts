@@ -4,20 +4,20 @@ import { AppService } from '../app.service';
 import Consts from '../../../common/consts';
 
 describe('AppController', () => {
-  let appController: AppController;
+	let appController: AppController;
 
-  beforeEach(async () => {
-    const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
-    }).compile();
+	beforeEach(async () => {
+		const app: TestingModule = await Test.createTestingModule({
+			controllers: [AppController],
+			providers: [AppService],
+		}).compile();
 
-    appController = app.get<AppController>(AppController);
-  });
+		appController = app.get<AppController>(AppController);
+	});
 
-  describe('root', () => {
-    it(`should return ${Consts.sanityMessage}`, () => {
-      expect(appController.getSanityCheck()).toBe(Consts.sanityMessage);
-    });
-  });
+	describe('root', () => {
+		it(`should return ${Consts.sanityMessage}`, () => {
+			expect(appController.getSanityCheck()).toBe(Consts.sanityMessage);
+		});
+	});
 });

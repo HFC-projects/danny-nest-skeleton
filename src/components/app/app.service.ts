@@ -3,7 +3,7 @@ import Consts from '../../common/consts';
 
 @Injectable()
 export class AppService {
-  getSanityCheck(): string {
-    return Consts.sanityMessage;
-  }
+	getSanityCheck(): string {
+		return Consts.sanityMessage;
+	}
 }
