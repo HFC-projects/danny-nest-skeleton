@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppController } from '../app.controller';
+import { AppService } from '../app.service';
+import Consts from '../../../common/consts';
 
 describe('AppController', () => {
   let appController: AppController;
@@ -15,8 +16,8 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it(`should return ${Consts.sanityMessage}`, () => {
+      expect(appController.getSanityCheck()).toBe(Consts.sanityMessage);
     });
   });
 });
