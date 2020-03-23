@@ -7,13 +7,13 @@ import * as HttpStatusCodes from 'http-status-codes';
 @ApiTags('Teachers')
 @Controller('Teachers')
 export class TeachersController {
-	constructor(private readonly teacherService: TeachersService) { }
+	constructor(private readonly teachersService: TeachersService) { }
 
 	@Get()
 	@ApiResponse({ status: HttpStatusCodes.OK, description: 'The query was fulfilled successfully'})
 	@ApiResponse({ status: HttpStatusCodes.INTERNAL_SERVER_ERROR, description: 'An error occured'})
 	getAllTeachers(): Promise<Teacher[]> {
-		return this.teacherService.getAll();
+		return this.teachersService.getAll();
 	}
 
 	@Get(':id')

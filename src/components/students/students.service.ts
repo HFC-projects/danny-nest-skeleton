@@ -15,11 +15,11 @@ export class StudentsService {
 		return createdStudent.save();
 	}
 
-	async findAll(): Promise<Student[]> {
+	async getAll(): Promise<Student[]> {
 		return this.studentModel.find().exec();
 	}
 
-	async findOne(id): Promise<Student> {
+	async getById(id): Promise<Student> {
 		return await this.studentModel.findById(id).exec();
 	}
 
