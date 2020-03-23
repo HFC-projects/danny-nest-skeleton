@@ -1,9 +1,11 @@
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './components/app/app.module';
+import { HttpExceptionFilter } from './filters/httpException.filter';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
+	app.useGlobalFilters(new HttpExceptionFilter);
 
 	const options = new DocumentBuilder()
 		.setTitle('danny-nest-skeleton')

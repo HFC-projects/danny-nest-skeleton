@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Param, NotFoundException } from '@nestjs/common';
 import { ApiTags, ApiResponse } from '@nestjs/swagger';
 import { TeachersService } from './teachers.service';
 import { Teacher } from './interfaces/teacher.interface';
@@ -21,6 +21,11 @@ export class TeachersController {
 	@ApiResponse({ status: HttpStatusCodes.NOT_FOUND, description: 'The given ID was not found'})
 	@ApiResponse({ status: HttpStatusCodes.INTERNAL_SERVER_ERROR, description: 'An error occured'})
 	async getTeacherById(@Param('id') id: string): Promise<Teacher> {
-		return this.teachersService.getById(id);
+		const teacher: Teacher = await this.teachersService.getById(id);
+
+		if (!teacher)
+			throw new NotFoundException();
+
+		return teacher;
 	}
 }

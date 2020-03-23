@@ -16,15 +16,16 @@ export class TeachersService {
 	}
 
 	async getAll(): Promise<Teacher[]> {
-		return await this.teacherModel.find().exec();
+		return this.teacherModel.find().exec();
 	}
 
 	async getById(id): Promise<Teacher> {
-		return await this.teacherModel.findById(id).populate('class').exec();
+		return this.teacherModel.findById(id).populate('class').exec();
+
 	}
 
 	async update(id, createTeacherDto: CreateTeacherDto): Promise<Teacher> {
-		return await this.teacherModel.updateOne({ _id: id }, createTeacherDto, { new: true });
+		return this.teacherModel.updateOne({ _id: id }, createTeacherDto, { new: true });
 	}
 
 	async remove(id): Promise<any> {

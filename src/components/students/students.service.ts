@@ -20,11 +20,11 @@ export class StudentsService {
 	}
 
 	async getById(id): Promise<Student> {
-		return await this.studentModel.findById(id).exec();
+		return this.studentModel.findById(id).exec();
 	}
 
 	async update(id, createStudentDto: CreateStudentDto): Promise<Student> {
-		return await this.studentModel.updateOne({ _id: id }, createStudentDto, { new: true });
+		return this.studentModel.updateOne({ _id: id }, createStudentDto, { new: true });
 	}
 
 	async remove(id): Promise<any> {
