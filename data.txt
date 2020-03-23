@@ -1,0 +1,39 @@
+student:
+
+{
+	_id: 
+	name:
+	classes: [ classIds ]
+}
+
+5e7763ca8c45f634c8d06dce - danny (math & biology)
+5e7763ca8c45f634c8d06dcf - yuval (math)
+5e7763ca8c45f634c8d06dd0 - adi (biology)
+
+teacher:
+
+{
+	_id:
+	name:
+	classes: [ classIds ]
+}
+
+5e776ac68c45f634c8d06dd1 - shimon (math)
+5e776ac68c45f634c8d06dd2 - rakhsha (biology)
+
+class:
+
+5e77620c8c45f634c8d06dcc - math
+5e77620c8c45f634c8d06dcd - biology
+
+
+{
+	_id:
+	name:
+	students: [ studentIds ]
+	teacher: { teacherId }
+}
+
+* CRUD for all three
+* Get class by id (with teachers)
+* Get studfent by id (with classes)
