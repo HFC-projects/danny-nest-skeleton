@@ -20,7 +20,7 @@ export class ClassesService {
 	}
 
 	async getById(id): Promise<Class> {
-		return this.classModel.findById(id).exec();
+		return this.classModel.findById(id).populate('teacher').populate('students').exec();
 	}
 
 	async update(id, createClassDto: CreateClassDto): Promise<Class> {

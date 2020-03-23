@@ -20,7 +20,7 @@ export class StudentsController {
 	@ApiResponse({ status: HttpStatusCodes.OK, description: 'The query was fulfilled successfully'})
 	@ApiResponse({ status: HttpStatusCodes.NOT_FOUND, description: 'The given ID was not found'})
 	@ApiResponse({ status: HttpStatusCodes.INTERNAL_SERVER_ERROR, description: 'An error occured'})
-	async getStudentById(@Param('id') id): Promise<Student> {
+	async getStudentById(@Param('id') id: string): Promise<Student> {
 		const student: Student = await this.studentsService.getById(id);
 
 		if (!student)

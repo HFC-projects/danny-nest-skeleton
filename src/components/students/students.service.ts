@@ -20,7 +20,7 @@ export class StudentsService {
 	}
 
 	async getById(id): Promise<Student> {
-		return this.studentModel.findById(id).exec();
+		return await this.studentModel.findById(id).populate('classes').exec();
 	}
 
 	async update(id, createStudentDto: CreateStudentDto): Promise<Student> {

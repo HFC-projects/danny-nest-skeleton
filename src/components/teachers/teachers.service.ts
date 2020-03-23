@@ -21,7 +21,6 @@ export class TeachersService {
 
 	async getById(id): Promise<Teacher> {
 		return this.teacherModel.findById(id).populate('class').exec();
-
 	}
 
 	async update(id, createTeacherDto: CreateTeacherDto): Promise<Teacher> {
