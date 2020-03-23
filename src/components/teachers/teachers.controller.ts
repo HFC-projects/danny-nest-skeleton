@@ -21,6 +21,6 @@ export class TeachersController {
 	@ApiResponse({ status: HttpStatusCodes.NOT_FOUND, description: 'The given ID was not found'})
 	@ApiResponse({ status: HttpStatusCodes.INTERNAL_SERVER_ERROR, description: 'An error occured'})
 	async getTeacherById(@Param('id') id: string): Promise<Teacher> {
-		return this.teacherService.getById(id);
+		return this.teachersService.getById(id);
 	}
 }
