@@ -4,16 +4,16 @@ import { Teacher } from './interfaces/teacher.interface';
 
 @Controller('Teachers')
 export class TeachersController {
-	constructor(private readonly teacherService: TeachersService) { }
+	constructor(private readonly teachersService: TeachersService) { }
 
 	@Get()
 	getAllTeachers(): Promise<Teacher[]> {
-		return this.teacherService.getAll();
+		return this.teachersService.getAll();
 	}
 
 	@Get(':id')
 	async getTeacherById(@Param('id') id): Promise<Teacher> {
-		return this.teacherService.getById(id);
+		return this.teachersService.getById(id);
 	}
 
 }
